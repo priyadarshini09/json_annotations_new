@@ -28,7 +28,7 @@ public class IgnorePropertiesDemoBeanTest {
     @Test
     public void testSerializingWithJsonIgnore()
             throws JsonProcessingException {
-        String jsonString = objectMapper.writeValueAsString(new IgnoreDemoBean());
+        String jsonString = objectMapper.writeValueAsString(new IgnorePropertiesDemoBean());
         System.out.println(jsonString);
         assertThat(jsonString, containsString("James Clark"));
         assertThat(jsonString, not(containsString("userId")));
