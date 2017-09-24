@@ -28,12 +28,20 @@ public class IgnorePropertiesDemoBeanTest {
     @Test
     public void testSerializingWithJsonIgnore()
             throws JsonProcessingException {
-
+        String jsonString = objectMapper.writeValueAsString(new IgnoreDemoBean());
+        System.out.println(jsonString);
+        assertThat(jsonString, containsString("James Clark"));
+        assertThat(jsonString, not(containsString("userId")));
     }
 
     @Test
     public void testDeSerializingWithJsonIgnore() throws IOException {
-
+        String jsonString = "{\"userId\": 231, \"name\": \"Mary Parker\", \"gender\": \"male\"}";
+        ObjectMapper mapper = new ObjectMapper();
+        IgnorePropertiesDemoBean bean = objectMapper.readValue(jsonString, IgnorePropertiesDemoBean.class);
+        System.out.println(bean);
+        assertThat(bean.name, is(equalTo("Mary Parker")));
+        assertThat(bean.userId, is(not(equalTo(231L))));
     }
 
 }

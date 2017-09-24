@@ -14,15 +14,15 @@ import static org.junit.Assert.*;
 
 public class IgnoreDemoBeanTest {
     private ObjectMapper objectMapper ;
-@Before
-public void setUp() throws Exception{
-   objectMapper = new ObjectMapper();
-}
-@After
- public void tearDown() throws Exception{
+    @Before
+    public void setUp() throws Exception{
+        objectMapper = new ObjectMapper();
+    }
+    @After
+    public void tearDown() throws Exception{
         objectMapper = null;
-}
-@Test
+    }
+    @Test
     public void testSerializingWithJsonIgnore()
             throws JsonProcessingException {
         String jsonString = objectMapper.writeValueAsString(new IgnoreDemoBean());
@@ -40,7 +40,5 @@ public void setUp() throws Exception{
         assertThat(bean.name, is(equalTo("Mary Parker")));
         assertThat(bean.personId, is(not(equalTo(231L))));
     }
-
-
 
 }

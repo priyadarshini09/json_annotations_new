@@ -7,4 +7,13 @@ public class IgnorePropertiesDemoBean {
     public long  userId = 0;
     public String  name = null;
     public String  gender  = null;
+
+    @Override
+    public String toString() {
+        return "IgnorePropertiesDemoBean{" +
+                "userId=" + userId +
+                ", name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                '}';
+    }
 }
