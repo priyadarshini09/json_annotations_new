@@ -31,13 +31,13 @@ public class AutoDetectDemoBeanTest {
         assertThat(jsonString, containsString("James Clark"));
     }
 
-    /*@Test
+    @Test
     public void testDeSerializingWithJsonAutoDetect() throws IOException {
         String jsonString = "{\"personId\": 231, \"name\": \"Mary Parker\"}";
         ObjectMapper mapper = new ObjectMapper();
         AutoDetectDemoBean bean = objectMapper.readValue(jsonString, AutoDetectDemoBean.class);
         System.out.println(bean);
-        assertThat(bean.name, is(equalTo("Mary Parker")));
-        assertThat(bean.personId, is(equalTo(231L)));
-    }*/
+        assertThat(bean.getName(), is(equalTo("Mary Parker")));
+        assertThat(bean.getPersonId(), is(equalTo(231L)));
+    }
 }

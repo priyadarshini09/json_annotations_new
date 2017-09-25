@@ -7,6 +7,22 @@ public class AutoDetectDemoBean {
     private long personId = 123L;
     private String  name = "James Clark";
 
+    public long getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(long personId) {
+        this.personId = personId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         return "IgnoreDemoBean{" +
