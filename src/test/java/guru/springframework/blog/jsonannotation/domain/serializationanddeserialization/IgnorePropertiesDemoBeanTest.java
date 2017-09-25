@@ -26,7 +26,7 @@ public class IgnorePropertiesDemoBeanTest {
     }
 
     @Test
-    public void testSerializingWithJsonIgnore()
+    public void testSerializingWithJsonIgnoreProperties()
             throws JsonProcessingException {
         String jsonString = objectMapper.writeValueAsString(new IgnorePropertiesDemoBean());
         System.out.println(jsonString);
@@ -35,7 +35,7 @@ public class IgnorePropertiesDemoBeanTest {
     }
 
     @Test
-    public void testDeSerializingWithJsonIgnore() throws IOException {
+    public void testDeSerializingWithJsonIgnoreProperties() throws IOException {
         String jsonString = "{\"userId\": 231, \"name\": \"Mary Parker\", \"gender\": \"male\"}";
         ObjectMapper mapper = new ObjectMapper();
         IgnorePropertiesDemoBean bean = objectMapper.readValue(jsonString, IgnorePropertiesDemoBean.class);

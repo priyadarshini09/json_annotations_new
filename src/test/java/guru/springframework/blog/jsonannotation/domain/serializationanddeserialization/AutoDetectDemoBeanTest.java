@@ -12,7 +12,7 @@ import static org.hamcrest.Matchers.not;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.*;
 
-public class IgnoreTypeDemoBeanTest {
+public class AutoDetectDemoBeanTest {
     private ObjectMapper objectMapper ;
     @Before
     public void setUp() throws Exception{
@@ -23,21 +23,21 @@ public class IgnoreTypeDemoBeanTest {
         objectMapper = null;
     }
     @Test
-    public void testSerializingWithJsonIgnoreType()
+    public void testSerializingWithJsonAutoDetect()
             throws JsonProcessingException {
-        String jsonString = objectMapper.writeValueAsString(new IgnoreTypeDemoBean());
+        String jsonString = objectMapper.writeValueAsString(new AutoDetectDemoBean());
         System.out.println(jsonString);
+        assertThat(jsonString, containsString("123"));
         assertThat(jsonString, containsString("James Clark"));
-        assertThat(jsonString, not(containsString("doorNumber")));
     }
 
-    @Test
-    public void testDeSerializingWithJsonIgnoreType() throws IOException {
-        String jsonString = "{\"personId\": 123,\"name\": \"Mary Parker\",\"address\": {\"doorNumber\": \"123\",\"streetName\": \"Phase 1\",\"pincode\": \"123456\",\"city\": \"New York\"}}";
+    /*@Test
+    public void testDeSerializingWithJsonAutoDetect() throws IOException {
+        String jsonString = "{\"personId\": 231, \"name\": \"Mary Parker\"}";
         ObjectMapper mapper = new ObjectMapper();
-        IgnoreTypeDemoBean bean = objectMapper.readValue(jsonString, IgnoreTypeDemoBean.class);
+        AutoDetectDemoBean bean = objectMapper.readValue(jsonString, AutoDetectDemoBean.class);
         System.out.println(bean);
         assertThat(bean.name, is(equalTo("Mary Parker")));
-        assertThat(bean.address.doorNumber, is(not(equalTo("123"))));
-    }
+        assertThat(bean.personId, is(equalTo(231L)));
+    }*/
 }
