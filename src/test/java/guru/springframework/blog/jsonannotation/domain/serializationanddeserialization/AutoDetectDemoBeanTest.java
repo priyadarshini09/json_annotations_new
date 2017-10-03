@@ -31,7 +31,7 @@ public class AutoDetectDemoBeanTest {
         assertThat(jsonString, containsString("James Clark"));
     }
 
-    @Test
+    /*@Test
     public void testDeSerializingWithJsonAutoDetect() throws IOException {
         String jsonString = "{\"personId\": 231, \"name\": \"Mary Parker\"}";
         ObjectMapper mapper = new ObjectMapper();
@@ -39,5 +39,5 @@ public class AutoDetectDemoBeanTest {
         System.out.println(bean);
         assertThat(bean.getName(), is(equalTo("Mary Parker")));
         assertThat(bean.getPersonId(), is(equalTo(231L)));
-    }
+    }*/
 }
